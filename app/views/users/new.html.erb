@@ -1,22 +1,26 @@
 <%= form_for @user do |f| %>
 
+  <%= @user.errors[:name].first %>
   <%= f.label :name, "Name" %><br/>
   <%= f.text_field :name %><br/>
 
   <br/>
 
+  <%= @user.errors[:surname].first %>
   <%= f.label :surname, "Surname" %><br/>
   <%= f.text_field :surname %><br/>
 
   <br/>
 
+  <%= @user.errors[:email].first %>
   <%= f.label :email, "Email" %><br/>
-  <%= f.text_field :email %><br/>
+  <%= f.email_field :email %><br/>
 
   <br/>
 
+  <%= @user.errors[:password].first %>
   <%= f.label :password, "Password" %><br/>
-  <%= f.text_field :password %><br/>
+  <%= f.password_field :password %><br/>
 
   <%= f.submit :create, { value: "Create user" } %>
   <%= link_to("Cancel", users_path) %>
