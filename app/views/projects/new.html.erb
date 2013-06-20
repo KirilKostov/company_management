@@ -1,0 +1,15 @@
+<%= form_for @project do |f| %>
+
+  <%= @project.errors[:name].first %>
+  <%= f.label :name, "Name" %><br/>
+  <%= f.text_field :name %><br/>
+
+  <br/>
+
+  <%= @project.errors[:description].first %>
+  <%= f.label :description, "Description" %><br/>
+  <%= f.text_field :description %><br/>
+
+  <%= f.submit :create, { value: "Create project" } %>
+  <%= link_to("Cancel", projects_path) %>
+<% end %>

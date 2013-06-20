@@ -1,0 +1,19 @@
+<h1>
+  Update the project
+</h1>
+
+<%= form_for @project do |f| %>
+
+  <%= f.label :name, "Name" %><br/>
+  <%= f.text_field :name %><br/>
+
+  <br/>
+
+  <%= f.label :description, "Description" %><br/>
+  <%= f.text_field :description %><br/>
+
+  <br/>
+  
+  <%= f.submit :update, { value: "Update project" } %>
+  <%= link_to("Cancel", projects_path) %>
+<% end %>
