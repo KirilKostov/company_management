@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :surname
 
-  # Validation
+  has_many :contacts
+
+  # Validations
   validates :name, 
             :presence => true,
             :length   => { :within => 2..16 }

@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   attr_accessible :name, :description
 
-  #validations
+  # Validations
   validates :name,
             :presence => true
   validates :description,

@@ -1,0 +1,12 @@
+<%= form_for [@user, @contact] do |f| %>
+
+  <%= @contact.errors[:phonenumber].first %>
+  <%= f.label :phonenumber, "Phonenumber" %><br/>
+  <%= f.text_field :phonenumber %><br/>
+
+  <br/>
+
+  <%= f.submit :create, { value: "Add contact" } %>
+  <%= link_to("Cancel", user_contacts_path) %>
+
+<% end %>

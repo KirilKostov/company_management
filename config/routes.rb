@@ -1,3 +1,6 @@
 CompanyManagement::Application.routes.draw do
-  resources :users, :projects
+  resources :projects
+  resources :users do
+    resources :contacts
+  end
 end

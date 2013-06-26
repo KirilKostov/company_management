@@ -1,0 +1,53 @@
+<table border="1" cellspacing = "0">
+
+  <tr>
+    <td>
+      Id
+    </td>
+    <td>
+      phonenumber
+    </td>
+     <td>
+      created_at
+    </td>
+     <td>
+      updated_at
+    </td>
+    <td>
+      edit phonenumber
+    </td>
+    <td>
+      delete phonenumber
+    </td>
+  </tr>
+
+  <% @contacts.each do |contact| %>
+
+  <tr>
+    <td>
+      <%= contact.id %>
+    </td>
+    <td>
+      <%= link_to(contact.phonenumber, user_contact_path(@user, contact)) %>
+    </td>
+     <td>
+      <%= contact.created_at %>
+    </td>
+     <td>
+      <%= contact.updated_at %>
+    </td>
+    <td>
+      <%= "edit" %>
+    </td>
+    <td>
+      <%= "delete" %>
+    </td>
+  </tr> 
+
+<% end %> 
+
+</table><br/>
+
+
+<%= link_to("Create new contact", new_user_contact_path(@user))%>
+<%= link_to("Back", user_path(@user))%>

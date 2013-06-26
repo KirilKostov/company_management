@@ -2,4 +2,5 @@
 <%= @user.password %><br/>
 <%= @user.name %><br/>
 <%= @user.surname %><br/>
+<%= link_to("Contacts", user_contacts_path(@user)) %>
 <%= link_to("back", users_path)%>
