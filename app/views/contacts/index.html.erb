@@ -37,10 +37,10 @@
       <%= contact.updated_at %>
     </td>
     <td>
-      <%= "edit" %>
+      <%= link_to("edit", edit_user_contact_path(@user, contact))%>
     </td>
     <td>
-      <%= "delete" %>
+      <%= link_to("delete", user_contact_path(@user, contact), :method => :delete) %>
     </td>
   </tr> 
 

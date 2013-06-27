@@ -5,6 +5,7 @@ class Contact < ActiveRecord::Base
 
   # Validations
   validates :phonenumber, 
-            :presence => true,
-            :length   => { :within => 6..12 }
+            :presence   => true,
+            :format     => { :with => /^[0-9]{3}[0-9]{9}$/, 
+            :message    => "Enter a valid phonenumber" }
 end
