@@ -1,6 +1,15 @@
+<div id="loginpage">
+   <% if flash[:notice] %>
+    <p class="notice-message">
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
+</div>
+
 <%= @user.email %><br/>
 <%= @user.password %><br/>
 <%= @user.name %><br/>
 <%= @user.surname %><br/>
 <%= link_to("Contacts", user_contacts_path(@user)) %>
-<%= link_to("back", users_path)%>
+<%= link_to("back", users_path) %>
+<%= link_to("Logout", session_path(@user), :method => :delete) %>

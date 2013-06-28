@@ -1,0 +1,23 @@
+<div id="loginpage">
+  <% if flash[:alert] %>
+    <p class="alert-message">
+      <%= flash[:alert] %>
+    </p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="notice-message">
+      <%= flash[:notice] %>
+    </p>
+  <% end %>
+</div>
+
+<%= form_tag sessions_path do %>
+
+  <%= label_tag(:email, "Email:") %>
+  <%= text_field_tag(:email) %>
+
+  <%= label_tag(:password, "Password:") %>
+  <%= text_field_tag(:password) %>
+  
+  <%= submit_tag("Login") %>
+<% end %>

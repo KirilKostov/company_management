@@ -3,4 +3,5 @@ CompanyManagement::Application.routes.draw do
   resources :users do
     resources :contacts
   end
+  resources :sessions, only: [:new, :create, :destroy]
 end

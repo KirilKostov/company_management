@@ -4,8 +4,8 @@ class Contact < ActiveRecord::Base
   belongs_to :user
 
   # Validations
-  validates :phonenumber, 
-            :presence   => true,
-            :format     => { :with => /^[0-9]{3}[0-9]{9}$/, 
-            :message    => "Enter a valid phonenumber" }
+  validates  :phonenumber, 
+             :presence   => true,
+             :format     => { :with => /^[0-9]{12}$/, 
+             :message    => "Enter a valid phonenumber" }
 end
