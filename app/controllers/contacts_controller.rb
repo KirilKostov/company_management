@@ -4,11 +4,6 @@ class ContactsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  def index
-    # render :text => user_contacts_path(@user)
-    @contacts = Contact.all
-  end
-
   def show
     @contact = Contact.find(params[:id])
   end
@@ -21,7 +16,10 @@ class ContactsController < ApplicationController
     @contact = Contact.new params[:contact]
 
     if @contact.save
-      redirect_to user_contacts_path(@user)
+
+      @user.contacts << @contact
+
+      redirect_to user_path(@user)
     else
       render action: 'new'
     end
@@ -35,7 +33,7 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     if @contact.update_attributes(params[:contact])
-      redirect_to user_contacts_path(@user)
+      redirect_to user_path(@user)
     else
       render action: 'edit'
     end
@@ -43,7 +41,7 @@ class ContactsController < ApplicationController
 
   def destroy
     Contact.find(params[:id]).destroy
-    redirect_to user_contacts_path(@user)
+    redirect_to user_path(@user)
   end
 
 end

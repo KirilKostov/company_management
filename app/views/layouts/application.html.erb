@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% if logged_in? %>
+  <%= link_to("#{current_user.name} #{current_user.surname}", user_path(current_user)) %>
+  <%= link_to("Logout", session_path(current_user), :method => :delete) %>
+<% else %>
+  <%= link_to("Sign in", new_session_path) %>
+  <%= link_to("Sign up", new_user_path) %>
+<% end %>
+
 <%= yield %>
 
 </body>
