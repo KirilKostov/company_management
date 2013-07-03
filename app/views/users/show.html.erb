@@ -65,5 +65,66 @@
 
 </table><br/>
 
-<%= link_to("back", users_path) %>
 <%= link_to("Create new contact", new_user_contact_path(@user))%>
+
+
+<br/><br/><br/>
+
+
+<h3>
+  My Articles
+</h3>
+
+<table border="1" cellspacing = "0">
+
+  <tr>
+    <td>
+      Id
+    </td>
+    <td>
+      article
+    </td>
+     <td>
+      created_at
+    </td>
+     <td>
+      updated_at
+    </td>
+    <td>
+      edit article
+    </td>
+    <td>
+      delete article
+    </td>
+  </tr>
+
+  <% @user.articles.each do |article| %>
+
+  <tr>
+    <td>
+      <%= article.id %>
+    </td>
+    <td>
+      <%= link_to(article.title, user_article_path(@user, article)) %>
+    </td>
+     <td>
+      <%= article.created_at %>
+    </td>
+     <td>
+      <%= article.updated_at %>
+    </td>
+    <td>
+      <%= link_to("edit", edit_user_article_path(@user, article))%>
+    </td>
+    <td>
+      <%= link_to("delete", user_article_path(@user, article), :method => :delete) %>
+    </td>
+  </tr> 
+
+<% end %> 
+
+</table><br/>
+
+<%= link_to("Create new article", new_user_article_path(@user))%>
+<%= link_to("back", users_path) %>
+

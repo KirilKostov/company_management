@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :surname
 
   has_many :contacts
+  has_many :articles
 
   # Validations
   validates :name, 

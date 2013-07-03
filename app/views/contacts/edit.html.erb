@@ -1,6 +1,6 @@
-<h1>
+<h2>
   Update your phonenumber
-</h1>
+</h2>
 
 <%= form_for [@user, @contact] do |f| %>
 
@@ -11,5 +11,5 @@
   <br/>
   
   <%= f.submit :update, { value: "Update contact" } %>
-  <%= link_to("Cancel", user_contacts_path) %>
+  <%= link_to("Cancel", user_path(@user)) %>
 <% end %>

@@ -1,0 +1,18 @@
+<%= form_for [@user, @article] do |f| %>
+
+  <%= @article.errors[:title].first %>
+  <%= f.label :title, "Title" %><br/>
+  <%= f.text_field :title %><br/>
+
+  <br/>
+
+  <%= @article.errors[:text].first %>
+  <%= f.label :text, "Content" %><br/>
+  <%= f.text_area :text %><br/>
+
+  <br/>
+
+  <%= f.submit :create, { value: "Add article" } %>
+  <%= link_to("Cancel", user_articles_path) %>
+
+<% end %>
