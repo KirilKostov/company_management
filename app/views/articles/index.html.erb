@@ -1,0 +1,37 @@
+<table border="1" cellspacing = "0">
+
+  <tr>
+    <td>
+      Title
+    </td>
+     <td>
+      created by
+    </td>
+     <td>
+      created_at
+    </td>
+     <td>
+      updated_at
+    </td>
+  </tr>
+
+<% @articles.each do |article| %>
+
+  <tr>
+    <td>
+      <%= link_to(article.title, article_path(article)) %>
+    </td>
+     <td>
+      <%= "#{article.user.name} #{article.user.surname}" %>
+    </td>
+     <td>
+      <%= article.created_at %>
+    </td>
+     <td>
+      <%= article.updated_at %>
+    </td>
+  </tr> 
+
+<% end %> 
+
+</table>
