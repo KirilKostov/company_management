@@ -8,9 +8,9 @@
 
   <%= form_for [@article, @comment] do |f| %>
 
-    <%= @comment.errors[:comment].first %>
-    <%= f.label :comment, "Comment:" %><br/>
-    <%= f.text_field :comment %><br/>
+    <%= @comment.errors[:text].first %>
+    <%= f.label :text, "Comment:" %><br/>
+    <%= f.text_field :text %><br/>
 
     <br/>
 
@@ -35,9 +35,9 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+    <% @article.comments.each do |comment| %>
       <tr>
-        <td><%= comment.comment %></td>
+        <td><%= comment.text %></td>
         <td><%= "#{comment.user.name} #{comment.user.surname}" %></td>
         <td><%= comment.created_at %></td>
         <% if current_user.comments.any? %>

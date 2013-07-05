@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130704135442) do
   end
 
   create_table "comments", :force => true do |t|
-    t.string   "comment"
+    t.string   "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "article_id"

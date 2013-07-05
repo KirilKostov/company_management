@@ -22,7 +22,7 @@ class Articles::CommentsController < ApplicationController
 
       redirect_to article_path(@article)
     else
-      render action: 'new'
+      render template: 'articles/show'
     end
   end
 

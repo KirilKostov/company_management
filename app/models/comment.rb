@@ -1,11 +1,11 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :comment
+  attr_accessible :text
 
   belongs_to :article
   belongs_to :user
 
   # Validations
-  validates :comment,
+  validates :text,
             :presence => true
             
 end
