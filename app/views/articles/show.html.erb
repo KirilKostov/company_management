@@ -1,12 +1,8 @@
 <p>
-  <h3>
-    <%= @article.title %>
-  </h3>  
+  <h3><%= @article.title %></h3>  
 </p>
 
-<p>
-  <%= @article.text %>
-</p>
+<p><%= @article.text %></p>
 
 <% if logged_in? %>
 
@@ -27,41 +23,37 @@
 
 <table border ="1" cellspacing ="0">
 
-  <tr>
-    <td>
-      Comments
-    </td>
-     <td>
-      created by
-    </td>
-     <td>
-      created_at
-    </td>
-     <td>
-      updated_at
-    </td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Comments</th>
+      <th>Created by</th>
+      <th>Created_at</th>
+      <% if current_user.comments.any? %>
+        <th>Delete</th>
+      <% end %>
+    </tr>
+  </thead>
 
-<% @comments.each do |c| %>
-
-  <tr>
-    <td>
-      <%= c.comment %>
-    </td>
-     <td>
-      <%= "#{c.user.name} #{c.user.surname}" %>
-    </td>
-     <td>
-      <%= c.created_at %>
-    </td>
-     <td>
-      <%= c.updated_at %>
-    </td>
-  </tr> 
-
-<% end %> 
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.comment %></td>
+        <td><%= "#{comment.user.name} #{comment.user.surname}" %></td>
+        <td><%= comment.created_at %></td>
+        <% if current_user.comments.any? %>
+          <td>
+            <% if logged_in? && current_user == comment.user %>
+              <%= link_to("delete", article_comment_path(@article, comment), :method => :delete) %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
 
 </table>
+
+
 
 <br/>
 

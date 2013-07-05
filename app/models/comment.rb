@@ -3,4 +3,9 @@ class Comment < ActiveRecord::Base
 
   belongs_to :article
   belongs_to :user
+
+  # Validations
+  validates :comment,
+            :presence => true
+            
 end
